@@ -3,6 +3,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
+import os
 
 
 
@@ -10,7 +11,7 @@ from flask_bcrypt import Bcrypt
 
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///comunidade.db"
+app.config["SQLALCHEMY_DATABASE_URI"] =os.getenv("DATABASE_URL")
 app.config["SECRET_KEY"] = "5edace8fdc83b69d050b20fb890bec722dc5b8254ffd5abb3cfe5b05e4b838dd"
 app.config["UPLOAD_FOLDER"] = "static/fotos_posts"
 
